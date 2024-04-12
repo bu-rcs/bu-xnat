@@ -1,0 +1,3 @@
+[submodule "xnat-mribkup"]
+	path = xnat-mribkup
+	url = git@github.com:bu-rcs/xnat-mribkup.git
