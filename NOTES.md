@@ -1,3 +1,13 @@
+### July 26, 2024
+
+* Mitch has submitted info on the ticket to get a compute VM created.  That then triggered more paperwork for all of the VMs plus the NAT.
+* original xnat VMs will stay alive for now.
+* It looks like CNC has been paying the bill for the 2 original xnat VMs plus the NAS. xnat2 hasn't been billed yet.  xnat2 and xnat-compute will be billed to the CNC, once we know pricing (expected to be pretty modest). Stephanie will submit an ISR for that.  
+* Docker software needs to be installed on xnat2.bu.edu so that it can pull containers. But it must be version 24 or older to avoid a compatibility problem with xnat.  Mitch says to submit a ticket to the Sys Admin group and ask them to do it. (brian will do that)
+* We discussed increasing the specs on xnat2 VM to be the same as the compute VM (4 cores, 16GB RAM) as it's currently pretty minimal (2 cores, 4GB RAM). Once the quote comes in the ISR can be adjusted.
+* note the postgres admin account setup is described in the Wiki.
+
+
 ### July 22, 2024
 Brian, Josh, Mitch, Stephanie
 
