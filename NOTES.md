@@ -1,3 +1,7 @@
+### August 1, 2024
+* Docker v27 was installed on `xnat2.bu.edu`, which is not what was requested in ticket (INC20379296)[https://bu.service-now.com/sp?id=form&table=incident&view=sp&sys_id=2199e88797638e10ff07f027f053aff4]. However, the [current dev version](https://bitbucket.org/xnatdev/container-service/src/dev/CHANGELOG.md) of the Container Service allows for newer Docker versions to be used. Once the XNAT service is restored I will install the dev version and see if it works ok
+* An update to the Tomcat version on July 30 broke the XNAT service. See ticket [INC20382305](https://bu.service-now.com/nav_to.do?uri=%2Fincident.do%3Fsys_id%3D19b2aea8c37f0e50155dd2da05013131)
+
 ### July 26, 2024
 
 * Mitch has submitted info on the ticket to get a compute VM created.  That then triggered more paperwork for all of the VMs plus the NAT.
