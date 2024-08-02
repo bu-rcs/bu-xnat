@@ -1,3 +1,7 @@
+### August 2, 2024
+* To do next week: Brian will try to update the container service to the beta 3.5.0 release to see if it will retrieve Docker containers. No further testing can be done until the compute VM is online.
+* If the quote on the VM is available it needs to be made clear that the xnat2 server will also get updated to the compute VM specs.
+
 ### August 1, 2024
 * Docker v27 was installed on `xnat2.bu.edu`, which is not what was requested in ticket (INC20379296)[https://bu.service-now.com/sp?id=form&table=incident&view=sp&sys_id=2199e88797638e10ff07f027f053aff4]. However, the [current dev version](https://bitbucket.org/xnatdev/container-service/src/dev/CHANGELOG.md) of the Container Service allows for newer Docker versions to be used. Once the XNAT service is restored I will install the dev version and see if it works ok
 * An update to the Tomcat version on July 30 broke the XNAT service. See ticket [INC20382305](https://bu.service-now.com/nav_to.do?uri=%2Fincident.do%3Fsys_id%3D19b2aea8c37f0e50155dd2da05013131)
