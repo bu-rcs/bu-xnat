@@ -1,3 +1,8 @@
+### August 8, 2024
+* Stephanie has submitted the ISR for a new xnat2-compute node and a memory upgrade for xnat2 to 12 GB.
+* As xnat2 has Docker v27 installed Brian is trying to install the dev version of the Container Service (3.5.0 pre-release) as it fixes the incompatibility problems between the CS and Docker >v24. 
+
+
 ### August 2, 2024
 * To do next week: Brian will try to update the container service to the beta 3.5.0 release to see if it will retrieve Docker containers. No further testing can be done until the compute VM is online.
 * If the quote on the VM is available it needs to be made clear that the xnat2 server will also get updated to the compute VM specs.
