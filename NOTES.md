@@ -1,3 +1,12 @@
+### August 9, 2024
+* container service has been updated to 3.5.0 beta pre-release
+* `"permission denied"` error that needs to be investigated (*Brian*). The newer docker does not support the old URL? May be (https://registry.hub.docker.com/v2/)
+* new xnat2-compute is being set up
+* we will need to migrate to xnat2 has to be moved to the production; it requires xnat2 to shutdown; IS&T server admin group will handle this
+* Stephanie decided to meet "when needed" basis (not a regular schedule)
+* Brian will let Stephanie know that he is on vacation until the end of September
+
+
 ### August 8, 2024
 * Stephanie has submitted the ISR for a new xnat2-compute node and a memory upgrade for xnat2 to 12 GB.
 * As xnat2 has Docker v27 installed Brian is trying to install the dev version of the Container Service (3.5.0 pre-release) as it fixes the incompatibility problems between the CS and Docker >v24. 
