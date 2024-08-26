@@ -1,3 +1,7 @@
+### August 26, 2024
+* (brian) container service 3.5.0 is now released. The new version is simply downloaded from https://wiki.xnat.org/container-service/
+  * An email will be sent to Stephanie to make sure she's ok with restarting the xnat server.
+
 ### August 9, 2024
 * container service has been updated to 3.5.0 beta pre-release
 * `"permission denied"` error that needs to be investigated (*Brian*). The newer docker does not support the old URL? May be (https://registry.hub.docker.com/v2/)
