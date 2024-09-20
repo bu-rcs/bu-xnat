@@ -1,3 +1,23 @@
+### September 20, 2024
+* (brian) Modified the postgres backup script to use its custom binary format, which allows for much faster restores if that is needed.
+* [Xnat discussion forum post](https://groups.google.com/g/xnat_discussion/c/Gdpfp24z5KY/m/2doB1EtxAAAJ?utm_medium=email&utm_source=footer) on the current problem with the prearchive.
+* Message received on 9/19/24 from Robert Pitkin (rpitkin@bu.edu) in Server Administration about the current status of the xnat2.bu.edu and xnat-compute.bu.edu VMs:
+```
+Good morning Brian,
+There are multiple data center clusters here at IS&T, and most VMs are in either the Production cluster or the Dev cluster.
+There is not functionally a difference, but we do prioritize workloads and resources along with having stricter change
+requirements for production systems. All of your VMs are currently in the Production cluster.
+
+That said, I think now we can consider these systems to be fully built. If you need adjustments made or have questions in
+the future the best course of action will be to open a ticket via ithelp@bu.edu or through tech web. That way you’ll be
+sure to get help even if I go on vacation. (Which does happen, I swear!)
+
+Have a great day,
+
+--
+Robert Pitkin
+```
+
 ### August 26, 2024
 * (brian) container service 3.5.0 is now released. The new version is simply downloaded from https://wiki.xnat.org/container-service/
   * An email will be sent to Stephanie to make sure she's ok with restarting the xnat server.
