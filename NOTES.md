@@ -1,3 +1,27 @@
+### October 1, 2024
+* (brian) Restore of the Postgres database to the July 20 backup.
+  * From the XNAT website go to the users and projects pages and download lists of everything.
+  *  `sudo systemctl stop tomcat`
+  *  Login as the postgres user: `sudo su postgres`
+  *  Go to the backup directory, `cd /data/pg_dump`
+  *  Rename the backup file with a .gz extension, then gunzip it so it's plain text.
+```
+mv 20240720-pg_dump 20240720-pg_dump.gz
+gunzip 20240720-pg_dump.gz
+```
+  * Restore using psql. The pg_restore tool is only used for backups done using the .fc binary format, see notes from Sept 20 below.
+```
+# This takes ~1 min to run, the database isn't that big.
+psql < 20240720-pg_dump
+```
+  * Hopefully that works...if so exit as the postgres user and restart Tomcat
+```
+exit
+# Startup takes several minutes.
+sudo systemctl start tomcat
+```
+  * Log in and take a look around. There should be fewer users/projects.
+    
 ### September 20, 2024
 * (brian) Modified the postgres backup script to use its custom binary format, which allows for much faster restores if that is needed.
 * [Xnat discussion forum post](https://groups.google.com/g/xnat_discussion/c/Gdpfp24z5KY/m/2doB1EtxAAAJ?utm_medium=email&utm_source=footer) on the current problem with the prearchive.
