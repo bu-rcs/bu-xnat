@@ -2,19 +2,21 @@
 * (brian) Restore of the Postgres database to the July 20 backup.
   * From the XNAT website go to the users and projects pages and download lists of everything.
   *  `sudo systemctl stop tomcat`
-  *  Login as the postgres user: `sudo su postgres`
+  *  Login as the xnat user as this the owner of the Postgres "xnat" database: `sudo su xnat`
   *  Go to the backup directory, `cd /data/pg_dump`
   *  Rename the backup file with a .gz extension, then gunzip it so it's plain text.
 ```
 mv 20240720-pg_dump 20240720-pg_dump.gz
 gunzip 20240720-pg_dump.gz
 ```
-  * Restore using psql. The pg_restore tool is only used for backups done using the .fc binary format, see notes from Sept 20 below.
+  * Restore using psql. The pg_restore tool is only used for backups done using the .fc binary format, see notes from Sept 20 below. Drop the xnat database, then create it, then restore.
 ```
-# This takes ~1 min to run, the database isn't that big.
-psql < 20240720-pg_dump
+# This takes 30 sec to run, the database isn't that big.
+dropdb xnat
+createdb xnat
+psql xnat < 20240720-pg_dump
 ```
-  * Hopefully that works...if so exit as the postgres user and restart Tomcat
+  * Hopefully that works...if so exit as the xnat user and restart Tomcat
 ```
 exit
 # Startup takes several minutes.
