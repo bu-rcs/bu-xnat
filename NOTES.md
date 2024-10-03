@@ -1,3 +1,7 @@
+### October 2, 2024
+* (brian) XNAT was upgraded to 1.8.10.1, which fixes a bug related to anonymization...we suspect this is the bug that was messing up subject ID's and preventing stuff in the prearchive from sometimes archiving correctly.  v1.9.0 has been released but that appears to be mostly security related updates, with underlying libraries being the main area of upgrade. The Container Service won't be compatible with it until that gets an update to 3.6.0.
+* An MRI session is scheduled for Oct 3, so we will see how the archiving goes!
+
 ### October 1, 2024
 * (brian) Restore of the Postgres database to the July 20 backup.
   * From the XNAT website go to the users and projects pages and download lists of everything.
@@ -23,6 +27,9 @@ exit
 sudo systemctl start tomcat
 ```
   * Log in and take a look around. There should be fewer users/projects.
+
+* The above DID NOT WORK. Well, the database restore worked, but then XNAT failed to start up properly. I used pg_restore and the Sept 30 back up file to get XNAT back up and running.
+  
     
 ### September 20, 2024
 * (brian) Modified the postgres backup script to use its custom binary format, which allows for much faster restores if that is needed.
