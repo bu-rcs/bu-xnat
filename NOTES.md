@@ -1,3 +1,16 @@
+### October 28, 2024
+* Brian & Kyle investigated the containers more.
+how do we set up the dcm2bids-session container?  It needs a "bidsmap" to convert the DICOM scan types to BIDS scan types.
+We started here:
+`https://groups.google.com/group/xnat_discussion/attach/1f10d0920a62a/bidsmap.json?part=0.2`
+and then learned from here:
+`https://groups.google.com/g/xnat_discussion/c/rniEJCCE-lg/m/Ijh3roMrAgAJ`
+that they used a URL to upload the bidsmap:
+`http://localhost:8080/xnat/REST/config/bids/bidsmap?inbody=true`
+which suggests that the xnat directory to use on xnat2.bu.edu is:
+`/data/xnat/home/config/bids/bidsmap.json`
+  * The bidsmap.json file needs to be edited to contain definitions for the Siemens scanner types. Kyle will consult with Stephanie on how to do this.
+
 ### October 2, 2024
 * (brian) XNAT was upgraded to 1.8.10.1, which fixes a bug related to anonymization...we suspect this is the bug that was messing up subject ID's and preventing stuff in the prearchive from sometimes archiving correctly.  v1.9.0 has been released but that appears to be mostly security related updates, with underlying libraries being the main area of upgrade. The Container Service won't be compatible with it until that gets an update to 3.6.0.
 * An MRI session is scheduled for Oct 3, so we will see how the archiving goes!
