@@ -1,3 +1,11 @@
+### October 29th, 2024
+* Kyle continued the investigation from yesterday. The curl commands that were suggested in this post: `https://groups.google.com/g/xnat_discussion/c/3DLtaArns3I/m/KqYgCQ3xAQAJ` returned an unfamiliar "301 Moved Permanently" error.
+* Kyle posted to the Google Group XNAT forms here: `https://groups.google.com/g/xnat_discussion/c/wODhMiQfwRI/m/lmyj_tNiBQAJ` asking for assistance
+* [Further investigation revealed](https://www.warp.dev/terminus/curl-follow-redirect) that the curl commands that we were using were missing the -L flag, which forces the server to follow symbolic links. A new error is returned with the following updated curl command: `curl -L -u "kkurkela" -d '@bidsmap.json' -X PUT 'xnat2.bu.edu/data/projects/burcs/config/bids/bidsmap?inbody=true'` which returns a 401 Unathorized Access Error:
+```
+<!doctype html><html lang="en"><head><title>HTTP Status 401 – Unauthorized</title><style type="text/css">body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 401 – Unauthorized</h1><hr class="line" /><p><b>Type</b> Status Report</p><p><b>Message</b> Your login attempt failed because the username and password combination you provided was invalid or your user already has the maximum number of user sessions open. After 20 failed login attempts, your user account will be locked. If you believe your account is currently locked, you can:&lt;ul&gt;&lt;li&gt;Unlock it by resetting your password&lt;&#47;li&gt;&lt;li&gt;Wait one hour for it to unlock automatically&lt;&#47;li&gt;&lt;&#47;ul&gt;</p><p><b>Description</b> The request has not been applied to the target resource because it lacks valid authentication credentials for that resource.</p><hr class="line" /><h3>Apache Tomcat/9.0.87</h3></body></html>
+``` 
+
 ### October 28, 2024
 * Brian & Kyle investigated the containers more.
 how do we set up the dcm2bids-session container?  It needs a "bidsmap" to convert the DICOM scan types to BIDS scan types.
