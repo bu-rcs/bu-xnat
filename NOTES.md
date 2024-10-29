@@ -13,7 +13,21 @@ Please continue your visit at our <a href="/">home page</a>.
 </p>
 </body>
 </html>
-``` 
+```
+* Kyle updated the curl command to `curl -L --location-trusted -u kkurkela -d '@bidsmap.json' -H "Content-Type: application/json" -X PUT 'xnat2.bu.edu/data/projects/burcs/config/bids/bidsmap'` [based on this webpage](https://stackoverflow.com/questions/7172784/how-do-i-post-json-data-with-curl) and recieved a new output:
+```
+<html>
+<head>
+   <title>Status page</title>
+</head>
+<body>
+<h3>No content to map due to end-of-input
+ at [Source: (String)""; line: 1, column: 0]</h3><p>You can get technical details <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1">here</a>.<br>
+Please continue your visit at our <a href="/">home page</a>.
+</p>
+</body>
+</html>
+```
 
 ### October 28, 2024
 * Brian & Kyle investigated the containers more.
