@@ -28,6 +28,38 @@ Please continue your visit at our <a href="/">home page</a>.
 </body>
 </html>
 ```
+* Kyle thinks that the dcm2bids-session container and the instructions posted [here](https://groups.google.com/g/xnat_discussion/c/3DLtaArns3I/m/KqYgCQ3xAQAJ) are obsolete. Both the instructions in that post AND the python code contained with in the dcm2bids-session docker container are using outdated API calls to the XNAT server. The XNAT API no longer uses, for example, an `/data/config` calls to set site-wide configurations -- it now uses `/xapi/siteConfig` calls. See: [LEGACY API CALLS](https://wiki.xnat.org/xnat-api/legacy-xnat-site-configuration-api); [MODERN API CALLS](https://wiki.xnat.org/xnat-api/#XNATRESTAPIDirectory-SiteAdministration). To state the problem another way, there are two problems with the current approach:
+1. The `curl` commands from this [form post](https://groups.google.com/g/xnat_discussion/c/3DLtaArns3I/m/KqYgCQ3xAQAJ) are obsolete. They need to be updated to use the [modern XNAT API calls](https://wiki.xnat.org/xnat-api/#XNATRESTAPIDirectory-SiteAdministration).
+2. The bigger problem is that the python script contained within the `dcm2bids-session` docker container also contain the outdated XNAT API calls. See the following section of code:
+```
+# Get site- and project-level configs
+bidsmaplist = []
+print
+print "Get site-wide BIDS map"
+# We don't use the convenience get() method because that throws exceptions when the object is not found.
+r = sess.get(host + "/data/config/bids/bidsmap", params={"contents": True})
+if r.ok:
+    bidsmaptoadd = r.json()
+    for mapentry in bidsmaptoadd:
+        if mapentry not in bidsmaplist:
+            bidsmaplist.append(mapentry)
+else:
+    print "Could not read site-wide BIDS map"
+
+print "Get project BIDS map if one exists"
+r = sess.get(host + "/data/projects/%s/config/bids/bidsmap" % project, params={"contents": True})
+if r.ok:
+    bidsmaptoadd = r.json()
+    for mapentry in bidsmaptoadd:
+        if mapentry not in bidsmaplist:
+            bidsmaplist.append(mapentry)
+else:
+    print "Could not read project BIDS map"
+```
+The problem with this code chunk is that the python code is invoking the /data/config api call and the /data/project/PROJECTNAME/config api call -- both of which appear to be outdated.
+* I see two possible ways forward:
+1. Edit the python code in the dcm2bids-session docker container to contain the updated "Modern" XNAT API calls.
+2. Write my own XNAT compatible docker container that does the entire pipeline
 
 ### October 28, 2024
 * Brian & Kyle investigated the containers more.
