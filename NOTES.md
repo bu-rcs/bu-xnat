@@ -14,7 +14,7 @@ Please continue your visit at our <a href="/">home page</a>.
 </body>
 </html>
 ```
-* Kyle updated the curl command to `curl -L --location-trusted -u kkurkela -d '@bidsmap.json' -H "Content-Type: application/json" -X PUT 'xnat2.bu.edu/data/projects/burcs/config/bids/bidsmap'` [based on this webpage](https://stackoverflow.com/questions/7172784/how-do-i-post-json-data-with-curl) and recieved a new output:
+* Kyle updated the curl command to `curl --location-trusted -u kkurkela -d '@bidsmap.json' -H "Content-Type: application/json" -X PUT 'xnat2.bu.edu/data/projects/burcs/config/bids/bidsmap'` [based on this webpage](https://stackoverflow.com/questions/7172784/how-do-i-post-json-data-with-curl) and recieved a new output:
 ```
 <html>
 <head>
