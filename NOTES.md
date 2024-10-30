@@ -1,7 +1,7 @@
 ### October 29th, 2024
 * Kyle continued the investigation from yesterday. The curl commands that were suggested in this post: `https://groups.google.com/g/xnat_discussion/c/3DLtaArns3I/m/KqYgCQ3xAQAJ` returned an unfamiliar "301 Moved Permanently" error.
 * Kyle posted to the Google Group XNAT forms here: `https://groups.google.com/g/xnat_discussion/c/wODhMiQfwRI/m/lmyj_tNiBQAJ` asking for assistance
-* [Further investigation revealed](https://www.warp.dev/terminus/curl-follow-redirect) that the curl commands that we were using were missing the -L flag, which forces the server to follow symbolic links. A new error is returned with the following updated curl command: `curl -L --location-trusted -u "kkurkela" -d '@bidsmap.json' -X PUT 'xnat2.bu.edu/data/projects/burcs/config/bids/bidsmap?inbody=true'` which returns the following:
+* [Further investigation revealed](https://www.warp.dev/terminus/curl-follow-redirect) that the curl commands that we were using were missing the --location-trusted flag, which forces the server to follow redirects and forward on the users credentials. A new error is returned with the following updated curl command: `curl --location-trusted -u kkurkela -d '@bidsmap.json' -X PUT 'xnat2.bu.edu/data/projects/burcs/config/bids/bidsmap?inbody=true'` which returns the following:
 ```
 <html>
 <head>
