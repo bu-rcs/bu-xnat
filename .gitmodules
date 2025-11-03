@@ -1,3 +1,6 @@
 [submodule "xnat-mribkup"]
 	path = xnat-mribkup
 	url = git@github.com:bu-rcs/xnat-mribkup.git
+[submodule "contaminated_sessions"]
+	path = contaminated_sessions
+	url = https://github.com/kakurk/contaminated_sessions
